@@ -12,14 +12,19 @@ const Content = (props) =>{
   console.log(props)
   return (
     <>
+      <Part pt={props.pt1} ex={props.ex1} />
+      <Part pt={props.pt2} ex={props.ex2} />
+      <Part pt={props.pt3} ex={props.ex3} />
+    </>
+  )
+}
+
+const Part = (props) =>{
+  console.log(props)
+  return (
+    <>
       <p>
-        {props.pt1} {props.ex1}
-      </p>
-      <p>
-        {props.pt2} {props.ex2}
-      </p>
-      <p>
-        {props.pt3} {props.ex3}
+        {props.pt} {props.ex}
       </p>
     </>
   )
