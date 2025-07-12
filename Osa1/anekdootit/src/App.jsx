@@ -40,16 +40,13 @@ const App = () => {
     const copy = Math.max(...votes)
     const most = votes.indexOf(copy)
     return most
-    
   }
-  
 
   const handleClick = () => {
     const newValue = getRandom(0,8)
     if (newValue === selected) {
       return handleClick()
     }
-    console.log(newValue)
     setSelected(newValue)
   }
 
@@ -61,6 +58,7 @@ const App = () => {
       <Button onClick ={handleClick} text='Next anecdote'/>
       <Header text='Anecdote with the most votes'/>
       <p>{anecdotes[mostVotes()]}</p>
+      <p>has {votes[mostVotes()]} votes</p>
     </div>
   )
 }
