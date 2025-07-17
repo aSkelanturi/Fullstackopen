@@ -1,65 +1,61 @@
+import Course from './Course'
+
 const App = () => {
-  const course = {
-    name: 'Half Stack application development',
-    id: 1,
-    parts: [
-      {
-        name: 'Fundamentals of React',
-        exercises: 10,
-        id: 1
-      },
-      {
-        name: 'Using props to pass data',
-        exercises: 7,
-        id: 2
-      },
-      {
-        name: 'State of a component',
-        exercises: 14,
-        id: 3
-      }
-    ]
-  }
-
-  const Course = ({ course })  => {
-    return (
-    <>
-      <Header name={course.name}/>
-      <Content parts={course.parts}/>
-      <Total exercise={course.parts}/>
-    </>
-    )
-  }
-
-  const Header = ({ name }) => {
-    return <h1>{name}</h1>
-  }
-
-  const Content = ({ parts }) => {
-    return(
-    <ul>
-      {parts.map(part =>
-        <Parts key={parts.id} part={part}/>
-      )}
-    </ul>
-  )}
-
-  const Parts = ({ part }) => {
-    return <li>{part.name} {part.exercises}</li>
-  }
-
-  const Total = ({ exercise }) => {
-    const initialValue = 0
-    const total = () => {
-      return exercise.reduce((accumulator, currentValue) =>  accumulator + currentValue.exercises, initialValue)
+  const courses = [
+    {
+      name: 'Half Stack application development',
+      id: 1,
+      parts: [
+        {
+          name: 'Fundamentals of React',
+          exercises: 10,
+          id: 1
+        },
+        {
+          name: 'Using props to pass data',
+          exercises: 7,
+          id: 2
+        },
+        {
+          name: 'State of a component',
+          exercises: 14,
+          id: 3
+        },
+        {
+          name: 'Redux',
+          exercises: 11,
+          id: 4
+        }
+      ]
+    }, 
+    {
+      name: 'Node.js',
+      id: 2,
+      parts: [
+        {
+          name: 'Routing',
+          exercises: 3,
+          id: 1
+        },
+        {
+          name: 'Middlewares',
+          exercises: 7,
+          id: 2
+        }
+      ]
     }
-
-    return <b>Total of {total()} exercises</b>
-  }
+  ]
 
   return (
     <div>
-      <Course course={course} />
+      <h1>Web development curriculum</h1>
+      <ul>
+        {courses.map(course =>(
+        <li key={course.id}>
+          <li><Course course={course} /></li>
+        </li>
+        ))}
+      </ul>
     </div>
   )
 }
